@@ -4,7 +4,7 @@
 
 GTK theme based on the appearance of Windows Server 2003 (Windows 95 theme w/ small tweaks)
 
-![windows-server](https://github.com/B00merang-Project/gallery/raw/master/404-lol.png)
+![windows-server](https://github.com/B00merang-Project/gallery/raw/master/Windows%20Server%202003%20(1).png)
 
 **Maintainer:** [Elbullazul](https://github.com/elbullazul)
 
