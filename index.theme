@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Windows Server 2003
+Comment=Windows Classic UI for Linux OSes
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Windows Server 2003
+MetacityTheme=Windows Server 2003
+IconTheme=Windows XP
+CursorTheme=DMZ-White
+ButtonLayout=menu:minimize,maximize,close
