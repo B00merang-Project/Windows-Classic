@@ -1,10 +1,10 @@
 [![built-with-azurra-framework](https://github.com/Elbullazul/Azurra_framework/raw/assets/azurra_framework_smaller.png)](https://github.com/Elbullazul/Azurra_framework)
 
-# Windows Server 2003
+# Windows Classic
 
-GTK theme based on the appearance of Windows Server 2003 (Windows 95 theme w/ small tweaks)
+GTK theme based on the appearance of Windows XP Classic (aka Windows Classic)
 
-![windows-server](https://github.com/B00merang-Project/gallery/raw/master/Windows%20Server%202003%20(1).png)
+![windows-classic](https://github.com/B00merang-Project/gallery/raw/master/Windows%20Server%202003%20(1).png)
 
 **Maintainer:** [Elbullazul](https://github.com/elbullazul)
 
@@ -12,7 +12,7 @@ GTK theme based on the appearance of Windows Server 2003 (Windows 95 theme w/ sm
 
 **License:** GPL v3
 
-**More info :** http://b00merang.weebly.com/windows-server-2003.html
+**More info :** http://b00merang.weebly.com/windows-classic.html
 
 ### Manual installation
 
