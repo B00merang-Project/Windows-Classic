@@ -17,49 +17,46 @@ dnd {
 image:disabled {
   -gtk-icon-filter: opacity(0.5); }
 
-.view {
+.view, iconview {
   color: #000000;
   background-color: #FFFFFF; }
-  .view:backdrop {
-    color: #000000;
-    background-color: #FFFFFF; }
-  .view:disabled {
+  .view:disabled, iconview:disabled {
     color: #6b6a67;
     background-color: #cbc8c4; }
-  .view:selected, .view:selected:focus, .view text:selected, .view text:selected:focus, .view text selection, .view text selection:focus {
+  .view:selected:focus, .view:selected, iconview:selected {
     color: #FFFFFF;
     background-color: #000082;
     border-radius: 0px; }
-    .view:selected:disabled, .view:selected:focus:disabled, .view text:selected:disabled, .view text:selected:focus:disabled, .view text selection:disabled, .view text selection:focus:disabled {
-      color: #b5b4b3;
-      background-color: #000082; }
-    .view:selected:backdrop, .view:selected:focus:backdrop, .view text:selected:backdrop, .view text:selected:focus:backdrop, .view text selection:backdrop, .view text selection:focus:backdrop {
-      color: #FFFFFF;
-      background-color: #000082; }
+  .view:selected:backdrop, iconview:selected:backdrop {
+    color: #FFFFFF;
+    background-color: #000082; }
 
-textview {
+textview > text {
   color: #000000;
-  background-color: #FFFFFF; }
-  textview text {
-    background-color: #FFFFFF; }
-    textview text:selected, textview text selection, textview text:selected:focus, textview text selection:focus {
-      color: #FFFFFF;
+  background-color: #FFFFFF;
+  background-color: transparent; }
+  textview > text:disabled {
+    color: #6b6a67;
+    background-color: #cbc8c4; }
+  textview > text:selected:focus, textview > text:selected {
+    color: #FFFFFF;
+    background-color: #000082; }
+  textview > text:selected:backdrop {
+    color: #FFFFFF;
+    background-color: #000082; }
+  textview > text > selection {
+    background-color: #000082; }
+    textview > text > selection:focus-within {
       background-color: #000082; }
-    textview text:backdrop {
-      background-color: #FFFFFF; }
 
-iconview:selected, iconview:selected:focus, iconview text:selected, iconview text:selected:focus, iconview text selection, iconview text selection:focus {
-  border: 1px solid #000082;
-  color: #FFFFFF;
-  background-color: #000082; }
+textview:drop(active) {
+  caret-color: #000082; }
 
-iconview:selected:backdrop, iconview selection:backdrop, iconview text:selected:backdrop, iconview text selection:backdrop {
-  color: #FFFFFF;
-  background-color: #000082; }
+iconview:drop(active) {
+  box-shadow: none; }
 
-rubberband {
-  border: 1px solid #06066f;
-  background-color: rgba(0, 0, 130, 0.3); }
+iconview > dndtarget:drop(active) {
+  border: 1px solid #000082; }
 
 rubberband {
   border: 1px solid #06066f;
@@ -74,6 +71,23 @@ flowbox > flowboxchild {
   flowbox > flowboxchild:selected {
     color: #FFFFFF;
     background-color: #000082; }
+
+gridview > rubberband {
+  border: 1px solid #06066f;
+  background-color: rgba(0, 0, 130, 0.3); }
+
+gridview > child {
+  padding: 3px;
+  transition: outline-width 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94), outline-offset 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+  gridview > child:selected {
+    color: #FFFFFF;
+    background-color: #000082; }
+    gridview > child:selected:backdrop {
+      color: #FFFFFF;
+      background-color: #000082; }
+  gridview > child box {
+    border-spacing: 8px;
+    margin: 12px; }
 
 coverflow cover {
   color: #000000;
@@ -160,7 +174,7 @@ switch {
   switch > slider {
     transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
-.view.content-view.check:not(list),
+.view.content-view.check:not(list), iconview.content-view.check:not(list),
 .content-view .tile check:not(list) {
   transition: 200ms; }
 
@@ -319,9 +333,9 @@ window.aboutdialog image.large-icons {
     border-color: #94928e;
     background-color: #c1beb9; }
 
-.osd view, view.osd, .osd.view {
+.osd view, view.osd, .osd.view, iconview.osd {
   background-color: #D6D3CE; }
-  .osd view:selected, .osd view:selected:focus, view.osd:selected, view.osd:selected:focus, .osd.view:selected, .osd.view:selected:focus {
+  .osd view:selected, .osd view:selected:focus, view.osd:selected, view.osd:selected:focus, .osd.view:selected, iconview.osd:selected, .osd.view:selected:focus {
     background-color: transparent;
     border-style: solid;
     border-radius: 0;
@@ -953,66 +967,37 @@ modelbutton.flat {
 
 menu, .menu {
   margin: 4px;
-  padding: 0;
+  padding: 4px 4px;
   border-radius: 0px;
-  border-style: none;
+  border: 1px solid #000000;
+  border-top-color: #f3f2f0;
+  border-left-color: #f3f2f0;
   color: #000000;
-  background-color: #D6D3CE; }
-  .csd menu, .csd .menu {
-    padding: 4px 4px;
-    border-radius: 0px;
-    border: 1px solid #000000;
-    border-top-color: #f3f2f0;
-    border-left-color: #f3f2f0;
-    box-shadow: inset -1px 0 #8f8a82, inset 0 -1px #8f8a82, inset 1px 0 #f3f2f0, inset 0 1px #f3f2f0; }
-  menu > arrow, .menu > arrow {
+  background-color: #D6D3CE;
+  box-shadow: inset -1px 0 #8f8a82, inset 0 -1px #8f8a82, inset 1px 0 #f3f2f0, inset 0 1px #f3f2f0; }
+  menu menuitem, .menu menuitem {
+    min-height: 16px;
+    min-width: 40px;
     padding: 4px;
-    border-color: transparent;
-    background-color: #D6D3CE;
-    min-width: 16px;
-    min-height: 16px; }
-    menu > arrow.top, .menu > arrow.top {
-      margin-top: -6px;
-      border-bottom: 1px solid #c2beb8;
-      -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
-    menu > arrow.bottom, .menu > arrow.bottom {
-      margin-bottom: -6px;
-      border-top: 1px solid #c2beb8;
-      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
-
-menu menuitem, .menu menuitem {
-  min-height: 16px;
-  min-width: 40px;
-  padding: 4px;
-  border: none;
-  border-radius: 0;
-  color: #000000;
-  background-color: #D6D3CE; }
-  menu menuitem:hover, .menu menuitem:hover {
-    color: #FFFFFF;
-    background-color: #000082; }
-    menu menuitem:hover switch slider, menu menuitem:hover scale highlight, menu menuitem:hover scale slider, .menu menuitem:hover switch slider, .menu menuitem:hover scale highlight, .menu menuitem:hover scale slider {
-      background-color: #FFFFFF; }
-    menu menuitem:hover scale trough, menu menuitem:hover switch, .menu menuitem:hover scale trough, .menu menuitem:hover switch {
-      background-color: rgba(255, 255, 255, 0.75); }
-  menu menuitem:disabled, .menu menuitem:disabled {
-    color: #6b6a67; }
-  menu menuitem arrow, .menu menuitem arrow {
-    min-width: 16px;
-    min-height: 16px; }
-    menu menuitem arrow:dir(ltr), .menu menuitem arrow:dir(ltr) {
-      margin-left: 10px;
-      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
-    menu menuitem arrow:dir(rtl), .menu menuitem arrow:dir(rtl) {
-      margin-right: 10px;
-      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
-
-menuitem accelerator {
-  color: alpha(currentColor, 0.55); }
-  menuitem accelerator:hover {
-    color: rgba(255, 255, 255, 0.8); }
-  menuitem accelerator:disabled {
-    color: #6b6a67; }
+    border: none;
+    border-radius: 0;
+    color: #000000;
+    background-color: #D6D3CE; }
+    menu menuitem:hover, .menu menuitem:hover {
+      color: #FFFFFF;
+      background-color: #000082; }
+      menu menuitem:hover switch slider, menu menuitem:hover scale highlight, menu menuitem:hover scale slider, .menu menuitem:hover switch slider, .menu menuitem:hover scale highlight, .menu menuitem:hover scale slider {
+        background-color: #FFFFFF; }
+      menu menuitem:hover scale trough, menu menuitem:hover switch, .menu menuitem:hover scale trough, .menu menuitem:hover switch {
+        background-color: rgba(255, 255, 255, 0.75); }
+    menu menuitem:disabled, .menu menuitem:disabled {
+      color: #6b6a67; }
+    menu menuitem accelerator, .menu menuitem accelerator {
+      color: alpha(currentColor, 0.55); }
+      menu menuitem accelerator:hover, .menu menuitem accelerator:hover {
+        color: rgba(255, 255, 255, 0.8); }
+      menu menuitem accelerator:disabled, .menu menuitem accelerator:disabled {
+        color: #6b6a67; }
 
 menubar, .menubar {
   padding: 0;
